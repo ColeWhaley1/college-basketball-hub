@@ -1,4 +1,12 @@
-@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Onest:wght@100..900&display=swap');@import "tailwindcss";
+
+:root {
+  --font-onest: 'Onest', system-ui, sans-serif
+}
+
+body, html {
+  font-family: var(--font-onest);
+}
 
 /* --- Background Color Classes --- */
 
