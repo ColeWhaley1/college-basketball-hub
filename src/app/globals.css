@@ -1,3 +1,70 @@
 @import "tailwindcss";
 
+/* --- Background Color Classes --- */
 
+.bg-theme-gray {
+  background-color: #545863;
+  color: white;
+}
+
+.bg-theme-blue {
+  background-color: #00E8FC;
+  color: white;
+}
+
+.bg-theme-orange {
+  background-color: #F96E46;
+  color: white;
+}
+
+.bg-theme-yellow {
+  background-color: #F9C846;
+  color: white;
+}
+
+.bg-theme-pink {
+  background-color: #FFE3E3;
+  color: white;
+}
+
+/* --- Text Color Classes --- */
+
+.text-theme-gray {
+  color: #545863;
+}
+
+.text-theme-blue {
+  color: #00E8FC;
+}
+
+.text-theme-orange {
+  color: #F96E46;
+}
+
+.text-theme-yellow {
+  color: #F9C846;
+}
+
+.text-theme-pink {
+  color: #FFE3E3;
+}
+
+/* --- Semantic Utility Classes --- */
+
+.bg-warning {
+  background-color: #F9C846;
+  color: black;
+}
+
+.text-warning {
+  color: #F9C846;
+}
+
+.bg-error {
+  background-color: #F96E46;
+  color: white;
+}
+
+.text-error {
+  color: #F96E46;
+}
