@@ -3,6 +3,8 @@
 import Link from "next/link";
 import "./globals.css";
 import { usePathname } from "next/navigation";
+import { IoSettingsOutline } from "react-icons/io5";
+import { IoSettings } from "react-icons/io5";
 
 export default function RootLayout({
   children,
@@ -15,7 +17,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <nav className="bg-theme-orange text-white p-4 px-6 flex gap-8">
+        <nav className="bg-theme-orange text-white p-4 px-6 flex items-center gap-8">
           <Link 
             href="/" 
             className={pathname === "/" ? "font-bold" : "hover:underline"}>
@@ -30,6 +32,18 @@ export default function RootLayout({
             href="/leagues"
             className={pathname === "/leagues" ? "font-bold" : "hover:underline"}>
               Leagues
+          </Link>
+          <Link
+            href="/settings"
+            className="ml-auto"
+          >
+            {
+              pathname === "/settings" ? (
+                <IoSettings size={24}/>
+              ) : (
+                <IoSettingsOutline size={24}/>
+              )
+            }
           </Link>
         </nav>
         <main className="p-6 w-full h-full">
