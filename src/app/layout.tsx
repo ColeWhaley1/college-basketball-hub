@@ -15,19 +15,24 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <nav className="bg-theme-orange text-white p-4 flex gap-8">
+        <nav className="bg-theme-orange text-white p-4 px-6 flex gap-8">
           <Link 
             href="/" 
             className={pathname === "/" ? "font-bold" : "hover:underline"}>
-              Test
+              Home
           </Link>
           <Link 
             href="/players"
             className={pathname === "/players" ? "font-bold" : "hover:underline"}>
               Players
           </Link>
+          <Link 
+            href="/leagues"
+            className={pathname === "/leagues" ? "font-bold" : "hover:underline"}>
+              Leagues
+          </Link>
         </nav>
-        <main>
+        <main className="p-6 w-full h-full">
           {children}
         </main>
       </body>
