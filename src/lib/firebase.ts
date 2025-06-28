@@ -1,0 +1,24 @@
+// Import the functions you need from the SDKs you need
+import { initializeApp } from "firebase/app";
+import { getAnalytics } from "firebase/analytics";
+import { getFirestore } from "firebase/firestore";
+// TODO: Add SDKs for Firebase products that you want to use
+// https://firebase.google.com/docs/web/setup#available-libraries
+
+// Your web app's Firebase configuration
+// For Firebase JS SDK v7.20.0 and later, measurementId is optional
+const firebaseConfig = {
+  apiKey: "AIzaSyBqS6lvxGhVoUL-Gofz4GpRKB1Evb9tyww",
+  authDomain: "college-basketball-hub.firebaseapp.com",
+  projectId: "college-basketball-hub",
+  storageBucket: "college-basketball-hub.firebasestorage.app",
+  messagingSenderId: "570997099828",
+  appId: "1:570997099828:web:243ba3e22c4ad625d46961",
+  measurementId: "G-M1S8LW5J7N"
+};
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+const analytics = getAnalytics(app);
+
+export const db = getFirestore(app);
