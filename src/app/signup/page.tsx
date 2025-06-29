@@ -16,10 +16,13 @@ export default function Signup() {
 
     const handleSignup = async () => {
         try {
+            if(!email || !password || !confirmedPassword) {
+                throw new Error("All fields are required.");
+            }
             if (password !== confirmedPassword) {
                 throw new Error("Passwords do not match.");
             }
-            createUser(email, password);
+            await createUser(email, password);
         } catch (error: any) {
             toast.error(error.message || "Signup failed. Please try again.");
         }
