@@ -6,6 +6,7 @@ import { usePathname } from "next/navigation";
 import { IoSettingsOutline, IoSettings } from "react-icons/io5";
 import { AuthProvider, useAuth } from "@/context/AuthContext";
 import AuthGuardRoutes from "@/components/auth-guard-routes";
+import { ToastContainer } from 'react-toastify';
 
 function Navigation() {
   const pathname = usePathname();
@@ -59,6 +60,17 @@ export default function RootLayout({
             <Navigation />
             <main className="w-full h-full">
               {children}
+              <ToastContainer
+                position="bottom-center"
+                autoClose={3000}
+                hideProgressBar={false}
+                newestOnTop={false}
+                closeOnClick
+                rtl={false}
+                pauseOnFocusLoss
+                draggable
+                pauseOnHover 
+              />
             </main>
           </AuthGuardRoutes>
         </AuthProvider>

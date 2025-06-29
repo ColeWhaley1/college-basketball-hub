@@ -3,10 +3,10 @@
 import { useState } from 'react';
 import LoadingPage from '@/components/loading-page';
 import { createUser } from '@/services/user';
+import { toast } from 'react-toastify';
 
 export default function Signup() {
 
-    const [loading, setLoading] = useState<boolean>(false);
     const [email, setEmail] = useState<string>('');
     const [password, setPassword] = useState<string>('');
     const [confirmedPassword, setConfirmedPassword] = useState<string>('');
@@ -15,18 +15,16 @@ export default function Signup() {
 
 
     const handleSignup = async () => {
-        setLoading(true);
-
-        createUser(email, password);
-
-        setLoading(false);
+        try {
+            if (password !== confirmedPassword) {
+                throw new Error("Passwords do not match.");
+            }
+            createUser(email, password);
+        } catch (error: any) {
+            toast.error(error.message || "Signup failed. Please try again.");
+        }
     }
 
-    if (loading) {
-        return (
-            <LoadingPage />
-        )
-    }
     return (
         <div className="flex w-full min-h-screen items-center justify-center bg-gray-100">
             <div className="bg-white p-8 w-full max-w-md rounded-md shadow-lg h-[66vh]">

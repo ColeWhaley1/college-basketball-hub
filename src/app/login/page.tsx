@@ -4,6 +4,7 @@ import { useState } from 'react';
 import LoadingPage from '@/components/loading-page';
 import { login } from '@/services/user';
 import { useRouter } from 'next/navigation';
+import { toast } from 'react-toastify';
 
 export default function Login() {
 
@@ -12,11 +13,13 @@ export default function Login() {
     const [showPassword, setShowPassword] = useState<boolean>(false);
 
     const handleLogin = async () => {
-
         try {
+            if(!email || !password){
+                throw new Error("Email and password are required.");
+            }
             await login(email, password);
         } catch (error: any) {
-            alert(error.message);
+            toast.error(error.message || "Login failed. Please try again.");
         }
     }
 
