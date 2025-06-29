@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from 'react';
-import LoadingPage from '@/components/loading-page';
+import LoadingPage from '@/components/loading';
 import { login } from '@/services/user';
 import { useRouter } from 'next/navigation';
 import { toast } from 'react-toastify';
@@ -14,7 +14,7 @@ export default function Login() {
 
     const handleLogin = async () => {
         try {
-            if(!email || !password){
+            if (!email || !password) {
                 throw new Error("Email and password are required.");
             }
             await login(email, password);

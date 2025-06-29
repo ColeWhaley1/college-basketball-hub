@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from 'react';
-import LoadingPage from '@/components/loading-page';
+import LoadingPage from '@/components/loading';
 import { createUser } from '@/services/user';
 import { toast } from 'react-toastify';
 
@@ -16,7 +16,7 @@ export default function Signup() {
 
     const handleSignup = async () => {
         try {
-            if(!email || !password || !confirmedPassword) {
+            if (!email || !password || !confirmedPassword) {
                 throw new Error("All fields are required.");
             }
             if (password !== confirmedPassword) {

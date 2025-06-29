@@ -1,9 +1,9 @@
 import { useAuth } from "@/context/AuthContext";
 import { usePathname, useRouter } from "next/navigation";
 import { useEffect } from "react";
-import LoadingPage from "./loading-page";
+import LoadingPage from "./loading";
 
-export default function AuthGuardRoutes({children}: {children: React.ReactNode}) {
+export default function AuthGuardRoutes({ children }: { children: React.ReactNode }) {
     const { user, loading } = useAuth();
     const router = useRouter();
     const pathname = usePathname();
@@ -12,7 +12,7 @@ export default function AuthGuardRoutes({children}: {children: React.ReactNode})
     const isLoggedIn = isAuthenticated && !loading;
 
     useEffect(() => {
-        if(isLoggedIn && (pathname === "/login" || pathname === "/signup")) {
+        if (isLoggedIn && (pathname === "/login" || pathname === "/signup")) {
             router.push("/");
             return;
         }
