@@ -10,6 +10,9 @@ export default function Signup() {
     const [email, setEmail] = useState<string>('');
     const [password, setPassword] = useState<string>('');
     const [confirmedPassword, setConfirmedPassword] = useState<string>('');
+    const [showPassword, setShowPassword] = useState<boolean>(false);
+    const [showConfirmedPassword, setShowConfirmedPassword] = useState<boolean>(false);
+
 
     const handleSignup = async () => {
         setLoading(true);
@@ -21,7 +24,7 @@ export default function Signup() {
 
     if (loading) {
         return (
-            <LoadingPage/>
+            <LoadingPage />
         )
     }
     return (
@@ -45,25 +48,45 @@ export default function Signup() {
                         <label htmlFor="password" className="block text-sm font-medium text-gray-700">
                             Password
                         </label>
-                        <input
-                            type="password"
-                            id="password"
-                            className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2"
-                            placeholder="*********"
-                            onChange={(e) => setPassword(e.target.value)}
-                        />
+                        <div className="relative">
+                            <input
+                                type={showPassword ? "text" : "password"}
+                                value={password}
+                                onChange={(e) => setPassword(e.target.value)}
+                                className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2"
+                                placeholder="Enter password"
+                            />
+
+                            <button
+                                type="button"
+                                onClick={() => setShowPassword((prev) => !prev)}
+                                className="absolute right-2 top-1/2 transform -translate-y-1/2 text-sm text-gray-600"
+                            >
+                                {showPassword ? "Hide" : "Show"}
+                            </button>
+                        </div>
                     </div>
                     <div>
-                        <label htmlFor="confirm-password" className="block text-sm font-medium text-gray-700">
+                        <label htmlFor="password" className="block text-sm font-medium text-gray-700">
                             Confirm Password
                         </label>
-                        <input
-                            type="password"
-                            id="confirm-password"
-                            className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2"
-                            placeholder="*********"
-                            onChange={(e) => setConfirmedPassword(e.target.value)}
-                        />
+                        <div className="relative">
+                            <input
+                                type={showConfirmedPassword ? "text" : "password"}
+                                value={confirmedPassword}
+                                onChange={(e) => setConfirmedPassword(e.target.value)}
+                                className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2"
+                                placeholder="Confirm password"
+                            />
+
+                            <button
+                                type="button"
+                                onClick={() => setShowConfirmedPassword((prev) => !prev)}
+                                className="absolute right-2 top-1/2 transform -translate-y-1/2 text-sm text-gray-600"
+                            >
+                                {showConfirmedPassword ? "Hide" : "Show"}
+                            </button>
+                        </div>
                     </div>
                     <div className="flex items-center justify-center mt-4">
                         <button className="w-full bg-theme-orange text-white font-semibold py-2 rounded-md btn-orange transition-colors" onClick={handleSignup}>
