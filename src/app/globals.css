@@ -80,6 +80,6 @@ body, html {
 
 /** --- Button Classes --- */
 
-.btn-login-orange:hover {
+.btn-orange:hover {
   background-color: rgba(249, 109, 70, 0.9);
 }

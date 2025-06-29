@@ -1,25 +1,26 @@
 "use client";
 
-import Lottie from 'lottie-react';
-import loadingAnimation from '@/assets/animations/basketball_loading.json';
 import { useState } from 'react';
+import LoadingPage from '@/components/loading-page';
 
 export default function Login() {
 
-    const [loading, setLoading] = useState<boolean>(true);
+    const [loading, setLoading] = useState<boolean>(false);
+
+    const handleLogin = async () => {
+        setLoading(true);
+    }
 
     if (loading) {
         return (
-            <div className='flex w-full h-full items-center justify-center'>
-                <Lottie animationData={loadingAnimation} style={{width: 100, height: 100}}></Lottie>
-            </div>
+            <LoadingPage/>
         )
     }
     return (
-        <div className="flex w-full min-h-screen items-center justify-center bg-gray-200">
+        <div className="flex w-full min-h-screen items-center justify-center bg-gray-100">
             <div className="bg-white p-8 w-full max-w-md rounded-md shadow-lg h-[66vh]">
                 <h1 className="text-theme-orange font-bold text-lg">Log In</h1>
-                <div className="mt-12 flex flex-col justify-center gap-4">
+                <div className="mt-18 flex flex-col justify-center gap-4">
                     <div>
                         <label htmlFor="email" className="block text-sm font-medium text-gray-700">
                             Email
@@ -43,9 +44,14 @@ export default function Login() {
                         />
                     </div>
                     <div className="flex items-center justify-center mt-4">
-                        <button className="w-full bg-theme-orange text-white font-semibold py-2 rounded-md btn-login-orange transition-colors">
+                        <button className="w-full bg-theme-orange text-white font-semibold py-2 rounded-md btn-orange transition-colors" onClick={handleLogin}>
                             Log In
                         </button>
+                    </div>
+                    <div className='flex items-center justify-center mt-4'>
+                        <p className='text-sm text-gray-600 flex items-center justify-center gap-2'>
+                            <p>Don't have an account? </p>
+                            <a href='/signup' className='text-theme-orange'>Sign up</a></p>
                     </div>
                 </div>
             </div>
