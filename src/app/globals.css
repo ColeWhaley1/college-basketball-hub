@@ -77,3 +77,9 @@ body, html {
 .text-error {
   color: #F96E46;
 }
+
+/** --- Button Classes --- */
+
+.btn-login-orange:hover {
+  background-color: rgba(249, 109, 70, 0.9);
+}
