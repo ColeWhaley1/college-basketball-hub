@@ -2,15 +2,21 @@
 
 import { useState } from 'react';
 import LoadingPage from '@/components/loading-page';
+import { createUser } from '@/services/user';
 
 export default function Signup() {
 
     const [loading, setLoading] = useState<boolean>(false);
+    const [email, setEmail] = useState<string>('');
+    const [password, setPassword] = useState<string>('');
+    const [confirmedPassword, setConfirmedPassword] = useState<string>('');
 
     const handleSignup = async () => {
         setLoading(true);
 
-        
+        createUser(email, password);
+
+        setLoading(false);
     }
 
     if (loading) {
@@ -32,6 +38,7 @@ export default function Signup() {
                             id="email"
                             className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2"
                             placeholder="ex. collegehoops@gmail.com"
+                            onChange={(e) => setEmail(e.target.value)}
                         />
                     </div>
                     <div>
@@ -43,6 +50,7 @@ export default function Signup() {
                             id="password"
                             className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2"
                             placeholder="*********"
+                            onChange={(e) => setPassword(e.target.value)}
                         />
                     </div>
                     <div>
@@ -54,6 +62,7 @@ export default function Signup() {
                             id="confirm-password"
                             className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2"
                             placeholder="*********"
+                            onChange={(e) => setConfirmedPassword(e.target.value)}
                         />
                     </div>
                     <div className="flex items-center justify-center mt-4">

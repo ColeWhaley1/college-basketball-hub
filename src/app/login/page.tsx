@@ -13,7 +13,7 @@ export default function Login() {
 
     if (loading) {
         return (
-            <LoadingPage/>
+            <LoadingPage />
         )
     }
     return (
@@ -49,9 +49,10 @@ export default function Login() {
                         </button>
                     </div>
                     <div className='flex items-center justify-center mt-4'>
-                        <p className='text-sm text-gray-600 flex items-center justify-center gap-2'>
+                        <div className='text-sm text-gray-600 flex items-center justify-center gap-2'>
                             <p>Don't have an account? </p>
-                            <a href='/signup' className='text-theme-orange'>Sign up</a></p>
+                            <a href='/signup' className='text-theme-orange'>Sign up</a>
+                        </div>
                     </div>
                 </div>
             </div>

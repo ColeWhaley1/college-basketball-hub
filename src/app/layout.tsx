@@ -11,7 +11,7 @@ function Navigation() {
   const pathname = usePathname();
   const { user, loading } = useAuth();
 
-  if (loading || !user) return null;
+  if (loading || !user || pathname === "/login" || pathname === "/signup") return null;
 
   return (
     <nav className="bg-theme-orange text-white p-4 px-6 flex items-center gap-8">
